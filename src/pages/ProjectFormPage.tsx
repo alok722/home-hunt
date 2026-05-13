@@ -82,7 +82,7 @@ export function ProjectFormPage() {
   }, [JSON.stringify(formValues), nameValue, projectId, user?.id, upsertProject]);
 
   return (
-    <div className="bg-mesh min-h-screen pb-24">
+    <div className="pb-24">
       <header className="sticky top-0 z-20 bg-background/90 backdrop-blur border-b border-slate-200 px-4 py-3 flex items-center justify-between">
         <button 
           onClick={() => navigate('/projects')}

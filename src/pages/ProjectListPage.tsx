@@ -55,7 +55,7 @@ export function ProjectListPage() {
   };
 
   return (
-    <div className="max-w-3xl mx-auto pb-24 relative min-h-screen bg-mesh">
+    <div className="max-w-3xl mx-auto pb-24 relative">
       <header className="sticky top-0 z-20 bg-background/90 backdrop-blur border-b border-slate-200 px-4 py-4 flex items-center justify-between">
         <div>
           <h1 className="text-xl font-bold text-slate-900 tracking-tight">Hi, {user?.username}</h1>

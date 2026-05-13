@@ -16,7 +16,7 @@ export function LoginPage() {
 
     setIsLoading(true);
     try {
-      const user = await getOrCreateUser(username.trim());
+      const user = await getOrCreateUser(username.trim().toLowerCase());
       setUser(user);
       navigate('/projects');
     } catch (error) {
@@ -28,7 +28,7 @@ export function LoginPage() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center p-4 bg-mesh">
+    <div className="min-h-screen flex flex-col items-center justify-center p-4">
       <div className="w-full max-w-md bg-surface p-8 rounded-xl shadow-sm border border-slate-200 text-center">
         <div className="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mx-auto mb-6">
           <Building className="w-8 h-8 text-primary" />

@@ -13,20 +13,5 @@
 @layer utilities {
   .bg-mesh {
     background-color: #f8f9ff;
-    background-image: 
-      linear-gradient(rgba(79, 70, 229, 0.06) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(79, 70, 229, 0.06) 1px, transparent 1px);
-    background-size: 32px 32px;
-    background-attachment: fixed;
-    animation: pan-grid 40s linear infinite;
-  }
-}
-
-@keyframes pan-grid {
-  0% {
-    background-position: 0 0;
-  }
-  100% {
-    background-position: 32px 32px;
   }
 }

@@ -85,7 +85,7 @@ export function ComparePage() {
   };
 
   return (
-    <div className="bg-mesh min-h-screen">
+    <div className="pb-24">
       <header className="sticky top-0 z-30 bg-background/90 backdrop-blur border-b border-slate-200 px-4 py-3 flex items-center shadow-sm">
         <button 
           onClick={() => navigate('/projects')}
@@ -97,11 +97,12 @@ export function ComparePage() {
         <h1 className="ml-2 text-lg font-bold text-slate-900">Compare Projects</h1>
       </header>
 
-      <main className="p-4 overflow-x-auto pb-24 max-w-6xl mx-auto">
-        <table className="w-full border-collapse text-sm table-fixed">
-          <thead className="sticky top-[68px] z-20 bg-background shadow-sm">
+      <main className="p-4 pb-24 max-w-6xl mx-auto">
+        <div className="bg-white/60 backdrop-blur-xl rounded-2xl shadow-lg border border-slate-200/60 overflow-x-auto">
+          <table className="w-full border-collapse text-sm table-fixed">
+            <thead className="sticky top-[68px] z-20 bg-white/80 backdrop-blur-md shadow-sm">
             <tr>
-              <th className="w-[140px] md:w-[240px] sticky left-0 bg-background/95 backdrop-blur z-30 p-2 border-b border-slate-200"></th>
+              <th className="w-[140px] md:w-[240px] sticky left-0 bg-white/90 backdrop-blur-md z-30 p-2 border-b border-slate-200/60"></th>
               {selectedProjects.map(p => {
                 const { percentage } = getScore(p);
                 return (
@@ -134,7 +135,7 @@ export function ComparePage() {
                 </tr>
                 {section.fields.map(field => (
                   <tr key={field.id} className="border-b border-slate-200 hover:bg-slate-50/50">
-                    <td className="py-3 px-2 font-medium text-slate-700 w-[140px] md:w-[240px] sticky left-0 bg-background/95 backdrop-blur z-10 border-r border-slate-200 shadow-[1px_0_0_0_rgba(0,0,0,0.05)]">
+                    <td className="py-3 px-2 font-medium text-slate-700 w-[140px] md:w-[240px] sticky left-0 bg-white/80 backdrop-blur-md z-10 border-r border-slate-200/60 shadow-[1px_0_0_0_rgba(0,0,0,0.05)]">
                       {field.label}
                     </td>
                     {selectedProjects.map(p => (
@@ -148,6 +149,7 @@ export function ComparePage() {
             ))}
           </tbody>
         </table>
+        </div>
       </main>
     </div>
   );
