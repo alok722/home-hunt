@@ -1,4 +1,3 @@
-import React from 'react';
 import { Pencil, Trash2, AlertTriangle, Star } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import fieldsConfig from '../config/fields.json';

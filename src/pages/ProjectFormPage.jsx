@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import { useStore } from '../store/useStore';
@@ -33,6 +33,7 @@ export function ProjectFormPage() {
     }
   });
 
+  // eslint-disable-next-line react-hooks/incompatible-library
   const formValues = watch();
   const nameValue = watch('name');
 
@@ -73,6 +74,7 @@ export function ProjectFormPage() {
     }, 1500);
 
     return () => clearTimeout(saveTimeout.current);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [JSON.stringify(formValues), nameValue, projectId, user.id, upsertProject]);
 
   return (

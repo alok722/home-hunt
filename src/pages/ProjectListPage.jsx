@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useStore } from '../store/useStore';
 import { fetchProjects, deleteProject } from '../lib/supabase';
@@ -38,6 +38,7 @@ export function ProjectListPage() {
       await deleteProject(id);
       removeProject(id);
     } catch (err) {
+      console.error(err);
       alert('Failed to delete project.');
     }
   };

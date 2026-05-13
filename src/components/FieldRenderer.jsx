@@ -1,4 +1,3 @@
-import React from 'react';
 import { Controller } from 'react-hook-form';
 import { TagBadge } from './TagBadge';
 import { Star } from 'lucide-react';
@@ -85,7 +84,7 @@ export function FieldRenderer({ field, control }) {
           </div>
         );
 
-      case 'dimension':
+      case 'dimension': {
         const valStr = fieldProps.value || '';
         const [l, w] = valStr.split('x').map(s => s.trim());
         
@@ -119,8 +118,9 @@ export function FieldRenderer({ field, control }) {
             </div>
           </div>
         );
+      }
 
-      case 'rating':
+      case 'rating': {
         const currentRating = parseInt(fieldProps.value || '0', 10);
         return (
           <div className="flex flex-col gap-1.5">
@@ -141,6 +141,7 @@ export function FieldRenderer({ field, control }) {
             </div>
           </div>
         );
+      }
 
       default:
         return <div className="text-danger text-sm">Unsupported field type: {type}</div>;

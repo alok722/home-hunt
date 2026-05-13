@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { ChevronDown, ChevronUp } from 'lucide-react';
 
 export function SectionAccordion({ title, icon: Icon, completedCount, totalCount, children, defaultOpen = false }) {
