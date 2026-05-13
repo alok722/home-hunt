@@ -1,0 +1,364 @@
+[
+  {
+    "section": "Basic Requirements",
+    "icon": "LayoutGrid",
+    "fields": [
+      {
+        "id": "config_type",
+        "label": "Configuration",
+        "type": "select",
+        "options": ["2 BHK", "2.5 BHK", "3 BHK", "3.5 BHK", "4 BHK"],
+        "tag": "must",
+        "note": "Unit type you are looking for"
+      },
+      {
+        "id": "carpet_area",
+        "label": "Carpet area (sq ft)",
+        "type": "number",
+        "placeholder": "e.g. 1050",
+        "tag": "must",
+        "note": "As per RERA-defined carpet area"
+      },
+      {
+        "id": "floor",
+        "label": "Floor number",
+        "type": "number",
+        "placeholder": "e.g. 7"
+      },
+      {
+        "id": "facing",
+        "label": "Flat facing",
+        "type": "select",
+        "options": ["East", "West", "North", "South", "North-East", "North-West", "South-East", "South-West"]
+      },
+      {
+        "id": "is_corner_unit",
+        "label": "Corner unit",
+        "type": "boolean",
+        "note": "Better ventilation and natural light"
+      },
+      {
+        "id": "total_cost_lakhs",
+        "label": "All-in cost (₹ lakhs)",
+        "type": "number",
+        "placeholder": "e.g. 95",
+        "tag": "must",
+        "note": "Agreement value + stamp duty + registration + GST + parking"
+      }
+    ]
+  },
+  {
+    "section": "Room Dimensions",
+    "icon": "DoorOpen",
+    "fields": [
+      {
+        "id": "master_bed_size",
+        "label": "Master bedroom (ft)",
+        "type": "dimension",
+        "note": "Length × Width, e.g. 13 × 12",
+        "tag": "must"
+      },
+      {
+        "id": "bed2_size",
+        "label": "Bedroom 2 (ft)",
+        "type": "dimension",
+        "note": "Length × Width"
+      },
+      {
+        "id": "bed3_size",
+        "label": "Bedroom 3 (ft)",
+        "type": "dimension",
+        "note": "Leave blank if 2 BHK"
+      },
+      {
+        "id": "living_dining_size",
+        "label": "Living + Dining (ft)",
+        "type": "dimension",
+        "note": "Combined area"
+      },
+      {
+        "id": "kitchen_size",
+        "label": "Kitchen (ft)",
+        "type": "dimension",
+        "note": "Usable floor area"
+      },
+      {
+        "id": "balcony_depth_ft",
+        "label": "Balcony depth (ft)",
+        "type": "number",
+        "placeholder": "e.g. 5",
+        "note": "Usable depth ≥ 4 ft preferred"
+      }
+    ]
+  },
+  {
+    "section": "Construction Quality",
+    "icon": "Building2",
+    "fields": [
+      {
+        "id": "is_mivan",
+        "label": "Mivan (aluminium formwork) construction",
+        "type": "boolean",
+        "note": "Stronger RCC walls, better finish"
+      },
+      {
+        "id": "no_seepage",
+        "label": "No seepage or cracks visible",
+        "type": "boolean",
+        "tag": "deal-breaker",
+        "note": "Check walls, ceiling corners, bathrooms"
+      },
+      {
+        "id": "flooring_type",
+        "label": "Flooring type",
+        "type": "select",
+        "options": ["Vitrified tiles", "Marble", "Granite", "Ceramic tiles", "Wooden/Laminate", "Not specified"]
+      },
+      {
+        "id": "cp_fittings_brand",
+        "label": "CP fittings brand",
+        "type": "select",
+        "options": ["Jaquar", "Kohler", "Grohe", "Hindware", "Cera", "Basic / Unknown"]
+      },
+      {
+        "id": "is_concealed_wiring",
+        "label": "Concealed wiring with MCB panel",
+        "type": "boolean"
+      },
+      {
+        "id": "window_type",
+        "label": "Window frame type",
+        "type": "select",
+        "options": ["UPVC", "Aluminium", "Steel", "Wood", "Not specified"]
+      }
+    ]
+  },
+  {
+    "section": "Building & Society",
+    "icon": "Building",
+    "fields": [
+      {
+        "id": "is_rera_registered",
+        "label": "RERA registered",
+        "type": "boolean",
+        "tag": "must",
+        "note": "Verify on Karnataka RERA portal"
+      },
+      {
+        "id": "rera_number",
+        "label": "RERA number",
+        "type": "text",
+        "placeholder": "e.g. PRM/KA/RERA/1251/..."
+      },
+      {
+        "id": "oc_status",
+        "label": "OC (Occupancy Certificate) status",
+        "type": "select",
+        "options": ["Received", "Applied", "Expected soon", "Not yet", "Not applicable (under construction)"],
+        "tag": "deal-breaker"
+      },
+      {
+        "id": "lift_count",
+        "label": "Number of lifts",
+        "type": "number",
+        "placeholder": "e.g. 2"
+      },
+      {
+        "id": "is_covered_parking",
+        "label": "Covered car parking included",
+        "type": "boolean",
+        "tag": "must"
+      },
+      {
+        "id": "parking_type",
+        "label": "Parking type",
+        "type": "select",
+        "options": ["Stilt", "Basement", "Mechanical stack", "Open", "Not included"]
+      },
+      {
+        "id": "power_backup",
+        "label": "Power backup",
+        "type": "select",
+        "options": ["Full (all points)", "Partial (lights + fans + lifts)", "Only lifts", "None"]
+      },
+      {
+        "id": "is_24x7_security",
+        "label": "24/7 security with CCTV",
+        "type": "boolean"
+      },
+      {
+        "id": "water_source",
+        "label": "Water supply source",
+        "type": "select",
+        "options": ["BWSSB + Borewell (dual)", "BWSSB only", "Borewell only", "Tanker dependent"],
+        "tag": "must"
+      },
+      {
+        "id": "maintenance_psf",
+        "label": "Maintenance charge (₹/sq ft/month)",
+        "type": "number",
+        "placeholder": "e.g. 3.5"
+      }
+    ]
+  },
+  {
+    "section": "Amenities",
+    "icon": "Waves",
+    "fields": [
+      {
+        "id": "has_play_area",
+        "label": "Children's play area",
+        "type": "boolean"
+      },
+      {
+        "id": "has_clubhouse_gym",
+        "label": "Clubhouse with gym",
+        "type": "boolean"
+      },
+      {
+        "id": "has_swimming_pool",
+        "label": "Swimming pool",
+        "type": "boolean"
+      },
+      {
+        "id": "has_visitor_parking",
+        "label": "Dedicated visitor parking",
+        "type": "boolean"
+      },
+      {
+        "id": "has_stp",
+        "label": "STP / waste management system",
+        "type": "boolean"
+      },
+      {
+        "id": "has_ev_charging",
+        "label": "EV charging provisions",
+        "type": "boolean"
+      }
+    ]
+  },
+  {
+    "section": "Location & Connectivity",
+    "icon": "MapPin",
+    "fields": [
+      {
+        "id": "commute_mins",
+        "label": "Commute to office (peak, mins)",
+        "type": "number",
+        "placeholder": "e.g. 35",
+        "tag": "must"
+      },
+      {
+        "id": "metro_distance_km",
+        "label": "Nearest metro distance (km)",
+        "type": "number",
+        "placeholder": "e.g. 1.2"
+      },
+      {
+        "id": "essentials_within_500m",
+        "label": "Daily essentials within 500 m",
+        "type": "boolean",
+        "note": "Grocery, medical, milk booth"
+      },
+      {
+        "id": "hospital_within_5km",
+        "label": "Multi-speciality hospital within 5 km",
+        "type": "boolean"
+      },
+      {
+        "id": "no_major_nuisance",
+        "label": "No major nuisance nearby",
+        "type": "boolean",
+        "tag": "deal-breaker",
+        "note": "No cremation ground, HT lines, nala encroachment"
+      },
+      {
+        "id": "not_flood_zone",
+        "label": "Not in flood / low-lying zone",
+        "type": "boolean",
+        "tag": "deal-breaker",
+        "note": "Verify on BBMP/BDA flood zone maps"
+      }
+    ]
+  },
+  {
+    "section": "Legal & Documentation",
+    "icon": "FileBadge",
+    "fields": [
+      {
+        "id": "clear_title_ec",
+        "label": "Clear title / EC obtained",
+        "type": "boolean",
+        "tag": "deal-breaker",
+        "note": "EC from sub-registrar — no pending loans on land"
+      },
+      {
+        "id": "khata_type",
+        "label": "Khata type",
+        "type": "select",
+        "options": ["A-Khata", "B-Khata", "Not checked yet"],
+        "tag": "deal-breaker",
+        "note": "B-Khata properties cannot get home loans"
+      },
+      {
+        "id": "plan_sanction_available",
+        "label": "Building plan sanction copy available",
+        "type": "boolean",
+        "tag": "must",
+        "note": "Approved by BBMP/BDA/BMRDA"
+      },
+      {
+        "id": "lawyer_reviewed",
+        "label": "Sale deed reviewed by independent lawyer",
+        "type": "boolean",
+        "tag": "must"
+      },
+      {
+        "id": "home_loan_approved_by",
+        "label": "Home loan approved by",
+        "type": "select",
+        "options": ["Multiple nationalised banks", "Single nationalised bank", "Private bank only", "HFC only", "Not checked"]
+      },
+      {
+        "id": "no_tax_dues",
+        "label": "No pending property tax dues",
+        "type": "boolean"
+      }
+    ]
+  },
+  {
+    "section": "Personal Notes",
+    "icon": "NotebookPen",
+    "fields": [
+      {
+        "id": "visit_date",
+        "label": "Site visit date",
+        "type": "date"
+      },
+      {
+        "id": "overall_rating",
+        "label": "Overall gut rating",
+        "type": "rating",
+        "note": "Your personal feel (1–5 stars)"
+      },
+      {
+        "id": "pros",
+        "label": "Pros",
+        "type": "textarea",
+        "placeholder": "What stood out positively..."
+      },
+      {
+        "id": "cons",
+        "label": "Cons",
+        "type": "textarea",
+        "placeholder": "Concerns or red flags..."
+      },
+      {
+        "id": "negotiated_price_lakhs",
+        "label": "Negotiated / quoted price (₹ lakhs)",
+        "type": "number",
+        "placeholder": "e.g. 88"
+      }
+    ]
+  }
+]
