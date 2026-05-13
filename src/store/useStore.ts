@@ -1,7 +1,18 @@
 import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
+import { User, Project } from '../types';
 
-export const useStore = create(
+interface StoreState {
+  user: User | null;
+  projects: Project[];
+  setUser: (user: User | null) => void;
+  setProjects: (projects: Project[]) => void;
+  upsertProject: (project: Project) => void;
+  deleteProject: (id: string) => void;
+  logout: () => void;
+}
+
+export const useStore = create<StoreState>()(
   persist(
     (set) => ({
       user: null,

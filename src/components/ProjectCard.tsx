@@ -1,8 +1,17 @@
 import { Pencil, Trash2, AlertTriangle, Star } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import fieldsConfig from '../config/fields.json';
+import { Project } from '../types';
 
-export function ProjectCard({ project, onCompareToggle, isCompareSelected, onDelete, isCompareMode }) {
+interface ProjectCardProps {
+  project: Project;
+  onCompareToggle?: (id: string) => void;
+  isCompareSelected?: boolean;
+  onDelete?: (id: string) => void;
+  isCompareMode?: boolean;
+}
+
+export function ProjectCard({ project, onCompareToggle, isCompareSelected, onDelete, isCompareMode }: ProjectCardProps) {
   const { name, data } = project;
   
   const config = data.config_type || 'N/A';
@@ -41,7 +50,7 @@ export function ProjectCard({ project, onCompareToggle, isCompareSelected, onDel
             type="checkbox" 
             className="w-6 h-6 text-primary rounded border-slate-300 focus:ring-primary"
             checked={isCompareSelected}
-            onChange={() => onCompareToggle(project.id)}
+            onChange={() => onCompareToggle?.(project.id)}
           />
         </div>
       )}
@@ -95,7 +104,7 @@ export function ProjectCard({ project, onCompareToggle, isCompareSelected, onDel
               <Pencil className="w-4 h-4" /> Edit
             </Link>
             <button 
-              onClick={() => onDelete(project.id)}
+              onClick={() => onDelete?.(project.id)}
               className="flex-1 flex items-center justify-center gap-2 py-2 min-h-[44px] bg-danger/5 hover:bg-danger/10 text-danger rounded font-medium transition-colors"
             >
               <Trash2 className="w-4 h-4" /> Delete

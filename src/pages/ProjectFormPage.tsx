@@ -3,6 +3,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import { useStore } from '../store/useStore';
 import { saveProject } from '../lib/supabase';
+import { Project } from '../types';
 import fieldsConfig from '../config/fields.json';
 import { SectionAccordion } from '../components/SectionAccordion';
 import { FieldRenderer } from '../components/FieldRenderer';
@@ -24,7 +25,7 @@ export function ProjectFormPage() {
 
   const [projectId, setProjectId] = useState(id);
   const [saveStatus, setSaveStatus] = useState('');
-  const saveTimeout = useRef(null);
+  const saveTimeout = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   const { control, register, watch } = useForm({
     defaultValues: {
@@ -46,7 +47,8 @@ export function ProjectFormPage() {
     
     saveTimeout.current = setTimeout(async () => {
       try {
-        const payload = {
+        if (!user) return;
+        const payload: Partial<Project> = {
           name: formValues.name,
           data: formValues.data,
           user_id: user.id,
@@ -73,9 +75,11 @@ export function ProjectFormPage() {
       }
     }, 1500);
 
-    return () => clearTimeout(saveTimeout.current);
+    return () => {
+      if (saveTimeout.current) clearTimeout(saveTimeout.current);
+    };
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [JSON.stringify(formValues), nameValue, projectId, user.id, upsertProject]);
+  }, [JSON.stringify(formValues), nameValue, projectId, user?.id, upsertProject]);
 
   return (
     <div className="bg-mesh min-h-screen pb-24">
@@ -107,7 +111,7 @@ export function ProjectFormPage() {
         </div>
 
         {fieldsConfig.map((section, idx) => {
-          const Icon = ICONS[section.icon];
+          const Icon = ICONS[section.icon as keyof typeof ICONS];
           const totalFields = section.fields.length;
           const completedFields = section.fields.filter(f => {
             const val = formValues.data?.[f.id];

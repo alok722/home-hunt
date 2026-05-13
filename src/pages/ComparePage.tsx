@@ -1,6 +1,7 @@
 import React from 'react';
 import { useSearchParams, useNavigate, Link } from 'react-router-dom';
 import { useStore } from '../store/useStore';
+import { Project } from '../types';
 import fieldsConfig from '../config/fields.json';
 import { ChevronLeft, Pencil } from 'lucide-react';
 
@@ -13,7 +14,7 @@ export function ComparePage() {
   const selectedProjects = projects.filter(p => ids.includes(p.id));
 
   // Scoring logic
-  const getScore = (project) => {
+  const getScore = (project: Project) => {
     let score = 0;
     let maxScore = 0;
     
@@ -53,14 +54,14 @@ export function ComparePage() {
     return <div className="p-8 text-center">No projects selected for comparison.</div>;
   }
 
-  const renderCellContent = (field, project) => {
+  const renderCellContent = (field: any, project: Project) => {
     const val = project.data[field.id];
     if (val === undefined || val === null || val === '') return <span className="text-slate-300">—</span>;
     if (typeof val === 'boolean') return val ? 'Yes' : 'No';
     return val.toString();
   };
 
-  const getCellColor = (field, project) => {
+  const getCellColor = (field: any, project: Project) => {
     const val = project.data[field.id];
     const isFilled = val !== undefined && val !== null && val !== '';
 
@@ -77,7 +78,7 @@ export function ComparePage() {
     return 'text-slate-800';
   };
 
-  const getScoreBadgeColor = (percentage) => {
+  const getScoreBadgeColor = (percentage: number) => {
     if (percentage >= 70) return 'bg-success text-white';
     if (percentage >= 40) return 'bg-warning text-white';
     return 'bg-danger text-white';

@@ -1,4 +1,4 @@
-export function TagBadge({ type }) {
+export function TagBadge({ type }: { type: string }) {
   if (type === 'must') {
     return (
       <span className="inline-flex items-center justify-center rounded px-2 py-0.5 text-[11px] font-medium leading-[14px] bg-success text-white ml-2 align-middle">

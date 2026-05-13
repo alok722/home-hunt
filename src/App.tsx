@@ -5,7 +5,7 @@ import { ProjectFormPage } from './pages/ProjectFormPage';
 import { ComparePage } from './pages/ComparePage';
 import { useStore } from './store/useStore';
 
-function PrivateRoute({ children }) {
+function PrivateRoute({ children }: { children: React.ReactNode }) {
   const user = useStore((state) => state.user);
   if (!user) {
     return <Navigate to="/" replace />;

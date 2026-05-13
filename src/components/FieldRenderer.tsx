@@ -2,10 +2,10 @@ import { Controller } from 'react-hook-form';
 import { TagBadge } from './TagBadge';
 import { Star } from 'lucide-react';
 
-export function FieldRenderer({ field, control }) {
+export function FieldRenderer({ field, control }: { field: any; control: any }) {
   const { id, label, type, options, placeholder, note, tag } = field;
 
-  const renderInput = (fieldProps) => {
+  const renderInput = (fieldProps: any) => {
     switch (type) {
       case 'boolean':
         return (
@@ -33,7 +33,7 @@ export function FieldRenderer({ field, control }) {
               onChange={(e) => fieldProps.onChange(e.target.value)}
             >
               <option value="" disabled>Select option</option>
-              {options?.map(opt => (
+              {options?.map((opt: string) => (
                 <option key={opt} value={opt}>{opt}</option>
               ))}
             </select>
@@ -86,7 +86,7 @@ export function FieldRenderer({ field, control }) {
 
       case 'dimension': {
         const valStr = fieldProps.value || '';
-        const [l, w] = valStr.split('x').map(s => s.trim());
+        const [l, w] = valStr.split('x').map((s: string) => s.trim());
         
         return (
           <div className="flex flex-col gap-1.5">

@@ -1,7 +1,16 @@
-import { useState } from 'react';
+import { useState, ReactNode } from 'react';
 import { ChevronDown, ChevronUp } from 'lucide-react';
 
-export function SectionAccordion({ title, icon: Icon, completedCount, totalCount, children, defaultOpen = false }) {
+interface SectionAccordionProps {
+  title: string;
+  icon: any;
+  completedCount: number;
+  totalCount: number;
+  children: ReactNode;
+  defaultOpen?: boolean;
+}
+
+export function SectionAccordion({ title, icon: Icon, completedCount, totalCount, children, defaultOpen = false }: SectionAccordionProps) {
   const [isOpen, setIsOpen] = useState(defaultOpen);
 
   return (

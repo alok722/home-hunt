@@ -15,7 +15,7 @@ export function ProjectListPage() {
   
   const [isLoading, setIsLoading] = useState(true);
   const [isCompareMode, setIsCompareMode] = useState(false);
-  const [selectedForCompare, setSelectedForCompare] = useState([]);
+  const [selectedForCompare, setSelectedForCompare] = useState<string[]>([]);
 
   useEffect(() => {
     async function load() {
@@ -32,7 +32,7 @@ export function ProjectListPage() {
     load();
   }, [user, setProjects]);
 
-  const handleDelete = async (id) => {
+  const handleDelete = async (id: string) => {
     if (!window.confirm('Delete this project?')) return;
     try {
       await deleteProject(id);
@@ -43,7 +43,7 @@ export function ProjectListPage() {
     }
   };
 
-  const handleCompareToggle = (id) => {
+  const handleCompareToggle = (id: string) => {
     setSelectedForCompare(prev => 
       prev.includes(id) ? prev.filter(pId => pId !== id) : [...prev, id]
     );
